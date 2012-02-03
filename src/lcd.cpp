@@ -1,4 +1,4 @@
-/* Copyright 2008 Victor Manuel S醤chez Corbacho.
+/* Copyright 2008 Victor Manuel S谩nchez Corbacho.
  *
  * This file is part of the Olimex-LPC2378-STK library.
  *
@@ -21,7 +21,7 @@
  * Fichero: lcd.h
  *----------------------------------------------------------------------------
  * Funciones para manejar el LCD de la placa LCD-2378-STK.
- * Las funciones son v醠idas para manejar un LCD con controlador
+ * Las funciones son v谩lidas para manejar un LCD con controlador
  * EPSON S1D15G10 y no para los basados en el controlador Philips PCF8833.
  *
  *============================================================================
@@ -32,9 +32,9 @@
 #include <olimex-lpc2378-stk/fonts.h>
 
 /*============================================================================
- * Funci髇: SSP0_inicializar
+ * Funci贸n: SSP0_inicializar
  *----------------------------------------------------------------------------
- * Utilidad: Inicializar el interfaz SSP0 que se usa en la comunicaci髇
+ * Utilidad: Inicializar el interfaz SSP0 que se usa en la comunicaci贸n
  *           con el LCD.
  *
  * Entrada: Ninguna.
@@ -50,7 +50,7 @@ void SSP0_inicializar( void )
    */
   PINSEL3 |= (3<<16) | (3<<14) | (3<<8);
   
-  /* El pin P1.21 maneja la se馻l #CS del LCD.
+  /* El pin P1.21 maneja la se帽al #CS del LCD.
    * Configurar el pin como salida.
    */
   FIO1DIR |= 1<<21;
@@ -59,12 +59,12 @@ void SSP0_inicializar( void )
    */
   LCD_CS_1;
 
-  /* Aplicar alimentaci髇 al perif閞ico SSP0.
+  /* Aplicar alimentaci贸n al perif茅rico SSP0.
    */
 
   PCONP |= 1<<21;
 
-  /* Configuraci髇.
+  /* Configuraci贸n.
    */
 
   SSP0CR1 = 0;
@@ -74,18 +74,18 @@ void SSP0_inicializar( void )
   SSP0CR0 = (9-1);
   SSP0CR1 |= SSP0CR1_SSE; /* Habilitar el SSP0 */
 
-  /* Vaciar el buffer de recepci髇.
+  /* Vaciar el buffer de recepci贸n.
    */
 
   for (i = 0; i < 8; i++ )  dummy = SSP0DR;
 }
 
 /*============================================================================
- * Funci髇: LCD_inicializar_pwm_backlight
+ * Funci贸n: LCD_inicializar_pwm_backlight
  *----------------------------------------------------------------------------
- * Utilidad: Inicializar el canal PWM conectado a los LEDs de retroiluminaci髇
+ * Utilidad: Inicializar el canal PWM conectado a los LEDs de retroiluminaci贸n
  *           del LCD. El PWM puede usarse para ajustar el nivel de retroilu-
- *           minaci髇.
+ *           minaci贸n.
  *
  * Entrada: Ninguna.
  *
@@ -114,11 +114,11 @@ void LCD_inicializar_pwm_backlight( void )
 }
 
 /*============================================================================
- * Funci髇: LCD_ajustar_backlight
+ * Funci贸n: LCD_ajustar_backlight
  *----------------------------------------------------------------------------
- * Utilidad: Ajustar la intensidad de la retroiluminaci髇.
+ * Utilidad: Ajustar la intensidad de la retroiluminaci贸n.
  *
- * Entrada: luz: nivel de iluminaci髇.
+ * Entrada: luz: nivel de iluminaci贸n.
  *
  * Salida:  Ninguna.
  *============================================================================
@@ -130,7 +130,7 @@ void LCD_ajustar_backlight( unsigned char luz )
 }
 
 /*============================================================================
- * Funci髇: LCD_comando
+ * Funci贸n: LCD_comando
  *----------------------------------------------------------------------------
  * Utilidad: Enviar un comando al LCD.
  *
@@ -154,7 +154,7 @@ void LCD_comando( unsigned char comando )
 }
 
 /*============================================================================
- * Funci髇: LCD_dato
+ * Funci贸n: LCD_dato
  *----------------------------------------------------------------------------
  * Utilidad: Enviar un dato al LCD.
  *
@@ -178,9 +178,9 @@ void LCD_dato( unsigned char dato )
 }
 
 /*============================================================================
- * Funci髇: LCD_backlight_maximo
+ * Funci贸n: LCD_backlight_maximo
  *----------------------------------------------------------------------------
- * Utilidad: Ajustar la retroiluminaci髇 del LCD al m醲imo.
+ * Utilidad: Ajustar la retroiluminaci贸n del LCD al m谩ximo.
  *
  * Entrada: Ninguna.
  *
@@ -193,9 +193,9 @@ void LCD_backlight_maximo( void )
 }
 
 /*============================================================================
- * Funci髇: LCD_apagar_backlight
+ * Funci贸n: LCD_apagar_backlight
  *----------------------------------------------------------------------------
- * Utilidad: Apagar la retroiluminaci髇 del LCD.
+ * Utilidad: Apagar la retroiluminaci贸n del LCD.
  *
  * Entrada: Ninguna.
  *
@@ -208,7 +208,7 @@ void LCD_apagar_backlight( void )
 }
 
 /*============================================================================
- * Funci髇: LCD_inicializar
+ * Funci贸n: LCD_inicializar
  *----------------------------------------------------------------------------
  * Utilidad: Inicilizar el LCD.
  *
@@ -234,7 +234,7 @@ void LCD_inicializar( void )
 
     LCD_inicializar_pwm_backlight();
 
-    /* Ajustar la retroiluminaci髇 al m醲imo.
+    /* Ajustar la retroiluminaci贸n al m谩ximo.
      */
     LCD_backlight_maximo();
     
@@ -280,7 +280,7 @@ void LCD_inicializar( void )
 }
 
 /*============================================================================
- * Funci髇: LCD_imprimir_caracter
+ * Funci贸n: LCD_imprimir_caracter
  *----------------------------------------------------------------------------
  * Utilidad: 
  *
@@ -360,7 +360,7 @@ void LCD_imprimir_caracter( char c, int x, int y, int tamano, int color, int col
 }
 
 /*============================================================================
- * Funci髇: LCD_imprimir_cadena
+ * Funci贸n: LCD_imprimir_cadena
  *----------------------------------------------------------------------------
  * Utilidad: 
  *
@@ -389,9 +389,9 @@ void LCD_imprimir_cadena( char *str, int x, int y, int tamano, int color, int co
 }
 
 /*============================================================================
- * Funci髇: retardo
+ * Funci贸n: retardo
  *----------------------------------------------------------------------------
- * Utilidad: Funci髇 para generar retardos por software.
+ * Utilidad: Funci贸n para generar retardos por software.
  *
  * Entrada: Ninguna.
  *
@@ -404,7 +404,7 @@ void retardo( volatile unsigned int t )
 }
 
 /*============================================================================
- * Funci髇: LCD_borrar
+ * Funci贸n: LCD_borrar
  *----------------------------------------------------------------------------
  * Utilidad: Borrar la pantalla LCD rellenando toda la pantalla de color
  *           blanco.
@@ -437,7 +437,7 @@ void LCD_borrar( void )
 }
 
 /*============================================================================
- * Funci髇: LCD_pixel
+ * Funci贸n: LCD_pixel
  *----------------------------------------------------------------------------
  * Utilidad: Dibujar un pixel en la pantalla LCD.
  *
@@ -466,15 +466,15 @@ void LCD_pixel( int x, int y, int color )
 }
 
 /*============================================================================
- * Funci髇:   LCD_linea
+ * Funci贸n:   LCD_linea
  *----------------------------------------------------------------------------
- * Utilidad:  Dibujar un segmento de l韓ea usando el algoritmo de Bresenham.
+ * Utilidad:  Dibujar un segmento de l铆nea usando el algoritmo de Bresenham.
  *
  * Entrada:   x1: coordenada x del origen del segmento.
  *            y1: coordenada y del origen del segmento.
  *            x2: coordenada x del final del segmento.
  *            y2: coordenada y del final del segmento.
- *            color: color de la l韓ea.
+ *            color: color de la l铆nea.
  *
  * Salida:
  *============================================================================
@@ -577,9 +577,9 @@ void LCD_linea( int x1, int y1, int x2, int y2, int color )
 }
 
 /*============================================================================
- * Funci髇:   LCD_rectangulo
+ * Funci贸n:   LCD_rectangulo
  *----------------------------------------------------------------------------
- * Utilidad:  Dibujar un rect醤gulo opcionalmente relleno.
+ * Utilidad:  Dibujar un rect谩ngulo opcionalmente relleno.
  *
  * Entrada:   x0, y0: coordenadas de una esquina del rectangulo.
  *            x1, y1: coordenadas de la esquina opuesta.
@@ -629,7 +629,7 @@ void LCD_rectangulo(int x0, int y0, int x1, int y1, unsigned char relleno, int c
 }
 
 /*============================================================================
- * Funci髇:   LCD_circunferencia
+ * Funci贸n:   LCD_circunferencia
  *----------------------------------------------------------------------------
  * Utilidad:  Dibujar una circunderencia usando el algoritmo de Bresenham.
  *

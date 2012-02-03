@@ -1,7 +1,7 @@
 // LCD functions
 //
 
-/* Copyright 2008 Victor Manuel Sánchez Corbacho.
+/* Copyright 2008 Victor Manuel SÃ¡nchez Corbacho.
  *
  * This file is part of the Olimex-LPC2378-STK library.
  *
@@ -29,7 +29,7 @@
  * ------------------------
  * SCK        P1.20/PWM1.2/SCK0
  * DIO        Directamente a P1.23/PWM1.4/MISO0
- *              a través de una resistencia de 10K a P1.24/PWM1.5/MOSI0
+ *              a travÃ©s de una resistencia de 10K a P1.24/PWM1.5/MOSI0
  * #CS        P1.21/PWM1.3/SSEL0
  * #RESET     P3.25/MAT0.0/PWM1.2 y pull-up de 33k a 3.3 V.
  * Backlight  P1.26/PWM1.6/CAP0.0
